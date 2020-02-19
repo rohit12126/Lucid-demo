@@ -4,6 +4,7 @@ namespace Framework\Http\Controllers;
 
 use Illuminate\Http\Request;
 use View;
+use Session;
 use Illuminate\Http\Response;
 Use Framework\User;
 use Framework\Http\Requests\UserRequest;
@@ -62,7 +63,9 @@ class HomeController extends Controller
         $post = $request->all();
         $result = User::updateUser($post);
         if($result['success']){
-            return redirect('home');
+            Session::flash('success', true); 
+            Session::flash('message', $result['message']); 
+            return redirect('/home');
         }
     }
 

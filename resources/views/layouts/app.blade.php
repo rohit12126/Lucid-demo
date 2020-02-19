@@ -29,6 +29,16 @@
 
 </head>
 <body>
+@if(Session::has('success'))
+<script>
+     toastr.success('{{Session::get('message')}}');
+</script>
+@endif
+@if(Session::has('error'))
+<script>
+     toastr.success('{{Session::get('message')}}');
+</script>
+@endif
     <div id="app">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
