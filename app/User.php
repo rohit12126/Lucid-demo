@@ -40,14 +40,14 @@ class User extends Authenticatable
     public static function deleteUser($post){
         $data = [];
         $user = User::where('id',$post['id'])->first();
-        if(!empty($user)){
-            $user->is_deleted = 1;
+        if(empty($user)){
+            //$user->is_deleted = 1;
             $user->save();
             $data['success'] = true;
             $data['message'] = 'User was deleted successfully';
         }else {
-          $data['success'] = true;
-          $data['message'] = 'User was deleted successfully.';
+          $data['success'] = false;
+          $data['message'] = 'Something went wrong, Please try again later.';
        }
        return $data;
 

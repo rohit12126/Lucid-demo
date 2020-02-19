@@ -38,8 +38,6 @@
   </form>
 </div>
 @endsection
-
-
 @push('js')
 <script type="text/javascript" src="https://1000hz.github.io/bootstrap-validator/dist/validator.min.js"></script>
 @endpush
